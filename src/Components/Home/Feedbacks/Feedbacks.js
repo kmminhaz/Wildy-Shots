@@ -1,11 +1,11 @@
 import React from 'react';
 import { Col, Container, Row } from 'react-bootstrap';
 
-import image1 from '../../Images/Customers/customer-1.png'
-import image2 from '../../Images/Customers/customer-2.png'
-import image3 from '../../Images/Customers/customer-3.png'
-import image4 from '../../Images/Customers/customer-4.png'
-import image5 from '../../Images/Customers/customer-5.png'
+import image1 from '../../../Images/Customers/customer-1.png'
+import image2 from "../../../Images/Customers/customer-2.png";
+import image3 from "../../../Images/Customers/customer-3.png";
+import image4 from "../../../Images/Customers/customer-4.png";
+import image5 from "../../../Images/Customers/customer-5.png";
 
 const Feedbacks = () => {
     return (

@@ -1,13 +1,16 @@
-import app from './firebase.init';
-import './App.css';
+import app from "./firebase.init";
+import "./App.css";
 import { getAuth } from "firebase/auth";
-import NavBar from './Components/NavBar/NavBar';
+import NavBar from "./Components/NavBar/NavBar";
 import "bootstrap/dist/css/bootstrap.min.css";
-import ImageSlider from './Components/ImageSlider/ImageSlider';
-import Services from './Components/MyServices/Services';
-import Feedbacks from './Components/Feedbacks/Feedbacks';
-import MyWorks from './Components/MyWorks/MyWorks';
-import Footer from './Components/Footer/Footer';
+import Footer from "./Components/Footer/Footer";
+import {Route, Routes } from "react-router-dom";
+import Home from "./Components/Home/Home";
+import Login from "./Components/LoginRegister/Login/Login";
+import Register from "./Components/LoginRegister/Register/Register";
+import About from "./Components/About/About";
+import Blog from "./Components/Blogs/Blog";
+import LoginRegister from "./Components/LoginRegister/LoginRegister";
 
 const auth = getAuth(app);
 
@@ -15,20 +18,17 @@ function App() {
   return (
     <div className='App bg-dark'>
       <NavBar></NavBar>
-      <br />
       <div>
-        <ImageSlider></ImageSlider>
-        <br /> <br /> <br /> <br /> <br />
-        <h2 className='text-white fw-bold py-4'> My Services </h2>
-        <Services></Services>
-        <br /> <br />
-        <h2 className='text-white fw-bold py-4'> My Works </h2>
-        <MyWorks></MyWorks>
-        <br /> <br />
-        <h2 className='text-white fw-bold py-4'> People Liked My Work </h2>
-        <Feedbacks></Feedbacks>
-        <Footer></Footer>
+        <Routes>
+          <Route path='/' element={<Home />}></Route>
+          <Route path='/about' element={<About />}></Route>
+          <Route path='/blog' element={<Blog />}></Route>
+          <Route path='/login-register' element={<LoginRegister />}></Route>
+          <Route path='/login' element={<Login />}></Route>
+          <Route path='/register' element={<Register />}></Route>
+        </Routes>
       </div>
+      <Footer></Footer>
     </div>
   );
 }

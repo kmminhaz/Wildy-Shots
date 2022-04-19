@@ -1,6 +1,6 @@
 import React from 'react';
 import { Button, Card, Col, Container, Row } from 'react-bootstrap';
-import image from '../../Images/chita2.jpg'
+import image from "../../../Images/chita2.jpg";
 
 const MyWorks = () => {
     return (

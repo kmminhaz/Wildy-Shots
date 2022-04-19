@@ -1,11 +1,11 @@
 import React from "react";
 import { Carousel, Container } from "react-bootstrap";
 import './ImageSlider.css'
-import image1 from "../../Images/bird1.jpg";
-import image2 from "../../Images/cheeta3.jpg";
-import image3 from "../../Images/animals.jpg";
-import image4 from "../../Images/squirrel.jpg";
-import image5 from "../../Images/puffin.jpg";
+import image1 from "../../../Images/bird1.jpg";
+import image2 from "../../../Images/cheeta3.jpg";
+import image3 from "../../../Images/animals.jpg";
+import image4 from "../../../Images/squirrel.jpg";
+import image5 from "../../../Images/puffin.jpg";
 
 const ImageSlider = () => {
   return (
