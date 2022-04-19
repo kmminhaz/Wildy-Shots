@@ -1,21 +1,42 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Col, Container, Form, Row } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
+import useFirebase from '../../Hooks/useFirebase';
 
 const Register = () => {
+  const { loginInWithGoogle, createAccountWithEmailAndPassword } = useFirebase();
+  const [email, setEmail] = useState([]);
+  const [password, setPassword] = useState([]);
+
+  const handleEmail = (event) =>{
+    setEmail(event.target.value);
+  }
+  const handlePassword = (event) =>{
+    setPassword(event.target.value)
+  }
+
+  const handleRegisterForm = (event) => {
+    event.preventDefault();
+    console.log(email, password);
+    createAccountWithEmailAndPassword(email, password);
+  };
     return (
       <div className='text-white'>
         <Container>
           <div className='w-50 mx-auto p-3 rounded-3 border border-2'>
             <div className='text-center mb-3'>
               <p>Sign up with:</p>
-              <button type='button' className='btn btn-danger ms-3'>
+              <button
+                type='button'
+                className='btn btn-danger ms-3'
+                onClick={loginInWithGoogle}
+              >
                 Google
               </button>
             </div>
 
             <p className='text-center'>Or</p>
-            <form>
+            <form onSubmit={handleRegisterForm}>
               {/* <!-- Name input --> */}
               <div className='form-outline mb-4'>
                 <Form.Group className='mb-4 mx-5' controlId='formBasicEmail'>
@@ -24,7 +45,7 @@ const Register = () => {
                       <Form.Control
                         type='text'
                         placeholder='Enter Name'
-                        required
+                        // required
                       />
                     </Col>
                   </Row>
@@ -40,7 +61,7 @@ const Register = () => {
                       <Form.Control
                         type='text'
                         placeholder='User Name'
-                        required
+                        // required
                       />
                     </Col>
                   </Row>
@@ -57,6 +78,7 @@ const Register = () => {
                         type='email'
                         placeholder='Enter Email'
                         required
+                        onBlur={handleEmail}
                       />
                     </Col>
                   </Row>
@@ -73,6 +95,7 @@ const Register = () => {
                         type='password'
                         placeholder='Set Password'
                         required
+                        onBlur={handlePassword}
                       />
                     </Col>
                   </Row>
@@ -88,7 +111,7 @@ const Register = () => {
                       <Form.Control
                         type='password'
                         placeholder='Repeat Password'
-                        required
+                        // required
                       />
                     </Col>
                   </Row>
@@ -99,15 +122,15 @@ const Register = () => {
               <button type='submit' className='btn btn-primary btn-block mb-4'>
                 Register
               </button>
-              <div class='text-center'>
-                <h6>
-                  Already have an account?{" "}
-                  <Link to={"/login"} className='fw-bold'>
-                    Login
-                  </Link>
-                </h6>
-              </div>
             </form>
+            <div className='text-center'>
+              <h6>
+                Already have an account?{" "}
+                <Link to={"/login"} className='fw-bold'>
+                  Login
+                </Link>
+              </h6>
+            </div>
           </div>
         </Container>
       </div>

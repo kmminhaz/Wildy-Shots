@@ -1,6 +1,4 @@
-import app from "./firebase.init";
 import "./App.css";
-import { getAuth } from "firebase/auth";
 import NavBar from "./Components/NavBar/NavBar";
 import "bootstrap/dist/css/bootstrap.min.css";
 import Footer from "./Components/Footer/Footer";
@@ -11,9 +9,6 @@ import Register from "./Components/LoginRegister/Register/Register";
 import About from "./Components/About/About";
 import Blog from "./Components/Blogs/Blog";
 import LoginRegister from "./Components/LoginRegister/LoginRegister";
-import SignOut from "./Components/LoginRegister/SignOut/SignOut";
-
-const auth = getAuth(app);
 
 function App() {
   return (
@@ -27,7 +22,6 @@ function App() {
           <Route path='/login-register' element={<LoginRegister />}></Route>
           <Route path='/login' element={<Login />}></Route>
           <Route path='/register' element={<Register />}></Route>
-          <Route path='/signout' element={<SignOut />}></Route>
         </Routes>
       </div>
       <Footer></Footer>

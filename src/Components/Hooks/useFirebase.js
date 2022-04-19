@@ -1,7 +1,9 @@
 import {
+  createUserWithEmailAndPassword,
   getAuth,
   GoogleAuthProvider,
   onAuthStateChanged,
+  signInWithEmailAndPassword,
   signInWithPopup,
   signOut,
 } from "firebase/auth";
@@ -14,6 +16,8 @@ const auth = getAuth(app);
 const provider = new GoogleAuthProvider();
 
 const useFirebase = () => {
+  const [success, setSuccess] = useState("");
+  const [error, setError] = useState("");
   const [user, setUser] = useState([]);
   const navigate = useNavigate();
 
@@ -25,10 +29,32 @@ const useFirebase = () => {
         const token = credential.accessToken;
         // The signed-in user info.
         const user = result.user;
-        console.log(user);
       })
       .catch((error) => {
-        console.log(error);
+        setError(error);
+      });
+  };
+
+  const loginWithEmailAndPassword = (email, password) => {
+    signInWithEmailAndPassword(auth, email, password)
+      .then((userCredential) => {
+        // Signed in
+        const user = userCredential.user;
+      })
+      .catch((error) => {
+        setError(error);
+      });
+  };
+
+  const createAccountWithEmailAndPassword = (email, password) => {
+    createUserWithEmailAndPassword(auth, email, password)
+      .then((userCredential) => {
+        // Signed in
+        const user = userCredential.user;
+        //   console.log(user);
+      })
+      .catch((error) => {
+        setError(error);
       });
   };
 
@@ -52,7 +78,15 @@ const useFirebase = () => {
     });
   }, []);
 
-  return { user, loginInWithGoogle, signOutUser };
+  return {
+    success,
+    error,
+    user,
+    loginInWithGoogle,
+    loginWithEmailAndPassword,
+    createAccountWithEmailAndPassword,
+    signOutUser,
+  };
 };
 
 export default useFirebase;

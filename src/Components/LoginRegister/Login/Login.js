@@ -1,14 +1,24 @@
-import React from "react";
+import React, { useState } from "react";
 import { Col, Container, Form, Row } from "react-bootstrap";
 import { Link } from "react-router-dom";
 import useFirebase from "../../Hooks/useFirebase";
 
-const handleLoginForm = () =>{
-
-}
 const Login = () => {
-  const { loginInWithGoogle } = useFirebase();
+  const { loginInWithGoogle, loginWithEmailAndPassword } = useFirebase();
+  const [email, setEmail] = useState([]);
+  const [password, setPassword] = useState([]);
 
+  const handleEmail = (event) => {
+    setEmail(event.target.value);
+  };
+  const handlePassword = (event) => {
+    setPassword(event.target.value);
+  };
+
+  const handleLoginForm = (event) =>{
+    event.preventDefault();
+    loginWithEmailAndPassword(email, password);
+  }
   return (
     <div className='text-white'>
       <Container className='my-5'>
@@ -38,6 +48,7 @@ const Login = () => {
                       type='email'
                       placeholder='Enter email'
                       required
+                      onBlur={handleEmail}
                     />
                   </Col>
                 </Row>
@@ -57,6 +68,7 @@ const Login = () => {
                       type='password'
                       placeholder='Password'
                       required
+                      onBlur={handlePassword}
                     />
                   </Col>
                 </Row>
@@ -64,7 +76,10 @@ const Login = () => {
             </div>
 
             {/* <!-- Submit button --> */}
-            <button type='submit' className='btn btn-light btn-block mb-4 fw-bold'>
+            <button
+              type='submit'
+              className='btn btn-primary btn-block mb-4'
+            >
               Sign in
             </button>
           </form>
