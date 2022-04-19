@@ -1,20 +1,29 @@
 import React from "react";
 import { Col, Container, Form, Row } from "react-bootstrap";
 import { Link } from "react-router-dom";
+import useFirebase from "../../Hooks/useFirebase";
 
+const handleLoginForm = () =>{
+
+}
 const Login = () => {
+  const { loginInWithGoogle } = useFirebase();
+
   return (
     <div className='text-white'>
       <Container className='my-5'>
         <div className='w-50 mx-auto p-3 rounded-3 border border-2'>
-          <form>
-            <div className='text-center mb-3'>
-              <p>Sign in with:</p>
-              <button type='button' className='btn btn-danger ms-3'>
-                Google
-              </button>
-            </div>
-
+          <div className='text-center mb-3'>
+            <p>Sign in with:</p>
+            <button
+              type='button'
+              className='btn btn-danger ms-3'
+              onClick={loginInWithGoogle}
+            >
+              Google
+            </button>
+          </div>
+          <form onSubmit={handleLoginForm}>
             <p className='text-center'>Or</p>
 
             {/* <!-- Email input --> */}
@@ -55,15 +64,18 @@ const Login = () => {
             </div>
 
             {/* <!-- Submit button --> */}
-            <button type='submit' className='btn btn-primary btn-block mb-4'>
+            <button type='submit' className='btn btn-light btn-block mb-4 fw-bold'>
               Sign in
             </button>
-            <div class='text-center'>
-              <h6>
-                Not a member? <Link to='/register' className="fw-bold">Register</Link>
-              </h6>
-            </div>
           </form>
+          <div className='text-center'>
+            <h6>
+              Not a member?{" "}
+              <Link to='/register' className='fw-bold'>
+                Register
+              </Link>
+            </h6>
+          </div>
         </div>
       </Container>
     </div>

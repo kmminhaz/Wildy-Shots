@@ -7,16 +7,15 @@ const Register = () => {
       <div className='text-white'>
         <Container>
           <div className='w-50 mx-auto p-3 rounded-3 border border-2'>
+            <div className='text-center mb-3'>
+              <p>Sign up with:</p>
+              <button type='button' className='btn btn-danger ms-3'>
+                Google
+              </button>
+            </div>
+
+            <p className='text-center'>Or</p>
             <form>
-              <div className='text-center mb-3'>
-                <p>Sign up with:</p>
-                <button type='button' className='btn btn-danger ms-3'>
-                  Google
-                </button>
-              </div>
-
-              <p className='text-center'>Or</p>
-
               {/* <!-- Name input --> */}
               <div className='form-outline mb-4'>
                 <Form.Group className='mb-4 mx-5' controlId='formBasicEmail'>

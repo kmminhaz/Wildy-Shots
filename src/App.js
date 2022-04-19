@@ -11,6 +11,7 @@ import Register from "./Components/LoginRegister/Register/Register";
 import About from "./Components/About/About";
 import Blog from "./Components/Blogs/Blog";
 import LoginRegister from "./Components/LoginRegister/LoginRegister";
+import SignOut from "./Components/LoginRegister/SignOut/SignOut";
 
 const auth = getAuth(app);
 
@@ -26,6 +27,7 @@ function App() {
           <Route path='/login-register' element={<LoginRegister />}></Route>
           <Route path='/login' element={<Login />}></Route>
           <Route path='/register' element={<Register />}></Route>
+          <Route path='/signout' element={<SignOut />}></Route>
         </Routes>
       </div>
       <Footer></Footer>

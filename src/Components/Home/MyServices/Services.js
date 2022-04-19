@@ -1,5 +1,5 @@
 import React from "react";
-import { Button, Card, Col, Container, Row } from "react-bootstrap";
+import { Button, Container, } from "react-bootstrap";
 
 import image1 from '../../../Images/lions.jpg'
 import image2 from '../../../Images/bird1.jpg'
