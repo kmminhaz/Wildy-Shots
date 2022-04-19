@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 import useFirebase from '../../Hooks/useFirebase';
 
 const Register = () => {
-  const { loginInWithGoogle, createAccountWithEmailAndPassword } = useFirebase();
+  const { success, error, loginInWithGoogle, createAccountWithEmailAndPassword } = useFirebase();
   const [email, setEmail] = useState([]);
   const [password, setPassword] = useState([]);
 
@@ -23,6 +23,8 @@ const Register = () => {
     return (
       <div className='text-white'>
         <Container>
+          <p className='text-success fw-bold'>{success}</p>
+          <p className='text-danger fw-bold'>{error}</p>
           <div className='w-50 mx-auto p-3 rounded-3 border border-2'>
             <div className='text-center mb-3'>
               <p>Sign up with:</p>

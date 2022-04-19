@@ -10,6 +10,7 @@ import About from "./Components/About/About";
 import Blog from "./Components/Blogs/Blog";
 import Checkout from "./Components/Checkout/Checkout";
 import RequireAuth from "./Components/RequireAuth";
+import NotFound from "./Components/NotFound/NotFound";
 
 function App() {
   return (
@@ -30,6 +31,8 @@ function App() {
               </RequireAuth>
             }
           ></Route>
+          <Route path='/reset' element={< />}></Route>
+          <Route path='*' element={<NotFound />}></Route>
         </Routes>
       </div>
       <Footer></Footer>

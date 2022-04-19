@@ -4,7 +4,8 @@ import { Link, useLocation, useNavigate } from "react-router-dom";
 import useFirebase from "../../Hooks/useFirebase";
 
 const Login = () => {
-  const { user, loginInWithGoogle, loginWithEmailAndPassword } = useFirebase();
+  const { error, user, loginInWithGoogle, loginWithEmailAndPassword } =
+    useFirebase();
   const [email, setEmail] = useState([]);
   const [password, setPassword] = useState([]);
   const navigate = useNavigate();
@@ -12,8 +13,8 @@ const Login = () => {
 
   let from = location.state?.from?.pathname || "/";
 
-  if(user){
-    navigate(from)
+  if (user) {
+    navigate(from);
   }
 
   const handleEmail = (event) => {
@@ -23,12 +24,13 @@ const Login = () => {
     setPassword(event.target.value);
   };
 
-  const handleLoginForm = (event) =>{
+  const handleLoginForm = (event) => {
     event.preventDefault();
     loginWithEmailAndPassword(email, password);
-  }
+  };
   return (
     <div className='text-white'>
+      {/* <p className='text-success fw-bold'>{success}</p> */}
       <Container className='my-5'>
         <div className='w-50 mx-auto p-3 rounded-3 border border-2'>
           <div className='text-center mb-3'>
@@ -83,14 +85,20 @@ const Login = () => {
               </Form.Group>
             </div>
 
+            <p className='text-danger fw-bold'>{error}</p>
             {/* <!-- Submit button --> */}
-            <button
-              type='submit'
-              className='btn btn-primary btn-block mb-4'
-            >
+            <button type='submit' className='btn btn-primary btn-block mb-4'>
               Sign in
             </button>
           </form>
+          <div className='text-center'>
+            <h6>
+              Forgot Password?{" "}
+              <Link to='/reset' className='fw-bold'>
+                Reset
+              </Link>
+            </h6>
+          </div>
           <div className='text-center'>
             <h6>
               Not a member?{" "}

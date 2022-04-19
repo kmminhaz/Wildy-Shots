@@ -3,6 +3,7 @@ import {
   getAuth,
   GoogleAuthProvider,
   onAuthStateChanged,
+  sendEmailVerification,
   signInWithEmailAndPassword,
   signInWithPopup,
   signOut,
@@ -24,32 +25,40 @@ const useFirebase = () => {
   const loginInWithGoogle = () => {
     signInWithPopup(auth, provider)
       .then((result) => {
-        navigate();
+        sendEmailVerification(auth.currentUser).then(() => {
+          setSuccess(
+            `A varification Email has been sent to ${user.reloadUserInfo.email}`
+          );
+        });
       })
       .catch((error) => {
-        setError(error);
+        setError('Email Or Password is Wrong');
       });
   };
 
   const loginWithEmailAndPassword = (email, password) => {
     signInWithEmailAndPassword(auth, email, password)
       .then((userCredential) => {
-        navigate();
+        const user = userCredential.user;
       })
       .catch((error) => {
-        setError(error);
+        setError('Email or Password is wrong');
       });
   };
 
   const createAccountWithEmailAndPassword = (email, password) => {
     createUserWithEmailAndPassword(auth, email, password)
       .then((userCredential) => {
-        // Signed in
         const user = userCredential.user;
-        //   console.log(user);
+
+        sendEmailVerification(auth.currentUser).then(() => {
+          setSuccess(
+            `A varification Email has been sent to ${user.reloadUserInfo.email}`
+          );
+        });
       })
       .catch((error) => {
-        setError(error);
+        setError(error.message);
       });
   };
 
