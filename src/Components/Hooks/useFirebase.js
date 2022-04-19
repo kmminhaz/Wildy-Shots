@@ -24,11 +24,7 @@ const useFirebase = () => {
   const loginInWithGoogle = () => {
     signInWithPopup(auth, provider)
       .then((result) => {
-        // This gives you a Google Access Token. You can use it to access the Google API.
-        const credential = GoogleAuthProvider.credentialFromResult(result);
-        const token = credential.accessToken;
-        // The signed-in user info.
-        const user = result.user;
+        navigate();
       })
       .catch((error) => {
         setError(error);
@@ -38,8 +34,7 @@ const useFirebase = () => {
   const loginWithEmailAndPassword = (email, password) => {
     signInWithEmailAndPassword(auth, email, password)
       .then((userCredential) => {
-        // Signed in
-        const user = userCredential.user;
+        navigate();
       })
       .catch((error) => {
         setError(error);

@@ -4,6 +4,7 @@ import { Button, Container, } from "react-bootstrap";
 import image1 from '../../../Images/lions.jpg'
 import image2 from '../../../Images/bird1.jpg'
 import image3 from '../../../Images/cheeta4.jpg'
+import { Link } from "react-router-dom";
 
 const Services = () => {
   return (
@@ -22,7 +23,10 @@ const Services = () => {
                   accusantium magnam totam quisquam aliquam sit libero ullam
                   debitis?
                 </p>
-                <Button variant='dark'> Checkout </Button>
+                <Button variant='dark' as={Link} to='checkout'>
+                  {" "}
+                  Checkout{" "}
+                </Button>
               </div>
             </div>
           </div>
@@ -38,7 +42,10 @@ const Services = () => {
                   accusantium magnam totam quisquam aliquam sit libero ullam
                   debitis?
                 </p>
-                <Button variant='dark'> Checkout </Button>
+                <Button variant='dark' as={Link} to='checkout'>
+                  {" "}
+                  Checkout{" "}
+                </Button>
               </div>
             </div>
           </div>
@@ -54,7 +61,10 @@ const Services = () => {
                   accusantium magnam totam quisquam aliquam sit libero ullam
                   debitis?
                 </p>
-                <Button variant='dark'> Checkout </Button>
+                <Button variant='dark' as={Link} to='checkout'>
+                  {" "}
+                  Checkout{" "}
+                </Button>
               </div>
             </div>
           </div>

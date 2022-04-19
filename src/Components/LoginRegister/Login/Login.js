@@ -1,12 +1,20 @@
 import React, { useState } from "react";
 import { Col, Container, Form, Row } from "react-bootstrap";
-import { Link } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import useFirebase from "../../Hooks/useFirebase";
 
 const Login = () => {
-  const { loginInWithGoogle, loginWithEmailAndPassword } = useFirebase();
+  const { user, loginInWithGoogle, loginWithEmailAndPassword } = useFirebase();
   const [email, setEmail] = useState([]);
   const [password, setPassword] = useState([]);
+  const navigate = useNavigate();
+  const location = useLocation();
+
+  let from = location.state?.from?.pathname || "/";
+
+  if(user){
+    navigate(from)
+  }
 
   const handleEmail = (event) => {
     setEmail(event.target.value);

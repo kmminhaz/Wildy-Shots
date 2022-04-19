@@ -36,7 +36,7 @@ const NavBar = () => {
                 </Button>
               ) : (
                 <Link
-                  to={"/login"}
+                  to={"login"}
                   className='text-dark p-2 fw-bold bg-white text-decoration-none rounded-3 ms-2'
                 >
                   {" "}
