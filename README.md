@@ -1,6 +1,6 @@
 # Wildy Shots
 
-live site link [Create React App](https://github.com/facebook/create-react-app).
+live site link [Wildy Shots](https://wild-photographer-2ea91.web.app).
 
 ## My application bullet points :
 (1) I Used Bootstrap
