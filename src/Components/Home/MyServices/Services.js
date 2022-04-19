@@ -1,9 +1,9 @@
 import React from "react";
-import { Button, Container, } from "react-bootstrap";
+import { Button, Container } from "react-bootstrap";
 
-import image1 from '../../../Images/lions.jpg'
-import image2 from '../../../Images/bird1.jpg'
-import image3 from '../../../Images/cheeta4.jpg'
+import image1 from "../../../Images/lions.jpg";
+import image2 from "../../../Images/bird1.jpg";
+import image3 from "../../../Images/cheeta4.jpg";
 import { Link } from "react-router-dom";
 
 const Services = () => {
@@ -15,13 +15,13 @@ const Services = () => {
             <div className='card'>
               <img src={image1} className='card-img-top' alt='...' />
               <div className='card-body'>
-                <h5 className='card-title'>Card title</h5>
+                <h5 className='card-title'>Wild Falmily</h5>
                 <h3 className='fw-bold'>100$</h3>
                 <p className='card-text text-start'>
-                  Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                  Dolores quidem unde corporis inventore est facere, qui
-                  accusantium magnam totam quisquam aliquam sit libero ullam
-                  debitis?
+                  To get a perfect shot of the family of the animals is so
+                  diffecult. Actually while taking a picture of the such powerful animals
+                  family you need to make them understand that you are not going
+                  to herm them.
                 </p>
                 <Button variant='dark' as={Link} to='checkout'>
                   {" "}
@@ -34,13 +34,12 @@ const Services = () => {
             <div className='card'>
               <img src={image2} className='card-img-top' alt='...' />
               <div className='card-body'>
-                <h5 className='card-title'>Card title</h5>
+                <h5 className='card-title'>Wild Nature</h5>
                 <h3 className='fw-bold'>100$</h3>
                 <p className='card-text text-start'>
-                  Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                  Dolores quidem unde corporis inventore est facere, qui
-                  accusantium magnam totam quisquam aliquam sit libero ullam
-                  debitis?
+                  The Nature in the wild is very beautiful and pleasing. But to
+                  get a parfect shot that blow your mind takes patience and hard
+                  working.
                 </p>
                 <Button variant='dark' as={Link} to='checkout'>
                   {" "}
@@ -53,13 +52,13 @@ const Services = () => {
             <div className='card'>
               <img src={image3} className='card-img-top' alt='...' />
               <div className='card-body'>
-                <h5 className='card-title'>Card title</h5>
+                <h5 className='card-title'>Wild In Deep Jungle</h5>
                 <h3 className='fw-bold'>100$</h3>
                 <p className='card-text text-start'>
-                  Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                  Dolores quidem unde corporis inventore est facere, qui
-                  accusantium magnam totam quisquam aliquam sit libero ullam
-                  debitis?
+                  Deep in the jungle thing became so dangerous and hard to shot
+                  pictures. You never know when and what things are comming to
+                  you. Somtime we need to stay in the jungle to get a perfect
+                  shot.
                 </p>
                 <Button variant='dark' as={Link} to='checkout'>
                   {" "}

@@ -94,7 +94,7 @@ const Login = () => {
           <div className='text-center'>
             <h6>
               Forgot Password?{" "}
-              <Link to='/reset' className='fw-bold'>
+              <Link to='/resetPassword' className='fw-bold'>
                 Reset
               </Link>
             </h6>

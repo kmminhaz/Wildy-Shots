@@ -11,6 +11,7 @@ import Blog from "./Components/Blogs/Blog";
 import Checkout from "./Components/Checkout/Checkout";
 import RequireAuth from "./Components/RequireAuth";
 import NotFound from "./Components/NotFound/NotFound";
+import ResetPassword from "./Components/LoginRegister/ResetPassword/ResetPassword";
 
 function App() {
   return (
@@ -31,7 +32,7 @@ function App() {
               </RequireAuth>
             }
           ></Route>
-          <Route path='/reset' element={< />}></Route>
+          <Route path='/resetPassword' element={<ResetPassword />}></Route>
           <Route path='*' element={<NotFound />}></Route>
         </Routes>
       </div>

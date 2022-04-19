@@ -4,6 +4,7 @@ import {
   GoogleAuthProvider,
   onAuthStateChanged,
   sendEmailVerification,
+  sendPasswordResetEmail,
   signInWithEmailAndPassword,
   signInWithPopup,
   signOut,
@@ -82,6 +83,16 @@ const useFirebase = () => {
     });
   }, []);
 
+  const resetPassword = (email) =>{
+    sendPasswordResetEmail(auth, email)
+      .then(() => {
+        setSuccess(`Your password reset Email sent successfully to ${email}`);
+      })
+      .catch((error) => {
+        setError("Your password reset Email sent faliled");
+      });
+  }
+
   return {
     success,
     error,
@@ -90,6 +101,7 @@ const useFirebase = () => {
     loginWithEmailAndPassword,
     createAccountWithEmailAndPassword,
     signOutUser,
+    resetPassword,
   };
 };
 
